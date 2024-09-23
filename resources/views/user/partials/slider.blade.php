@@ -11,7 +11,7 @@
                             @endforeach
                                 <div class="transparent-box">
                                     <h6 class="fs-lg-5">{{$specialty->name}}</h6>
-                                    <p class="fs-lg-6">{{$specialty->na_baze}}</p>
+                                    <p class="fs-lg-6">На базе {{$specialty->na_baze}}</p>
                                     <p class="fs-lg-6">Срок обучения {{$specialty->srok_of_educate}}</p>
                                 </div>
                     @else

@@ -9,8 +9,9 @@ class Specialty extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['code', 'name', 'form_of_educate', 'srok_of_educate', 'na_baze'];
     public function images()
     {
-        return $this->belongsToMany(Image::class, 'specialty_image');
+        return $this->belongsToMany(Image::class, 'image_specialty');
     }
 }
