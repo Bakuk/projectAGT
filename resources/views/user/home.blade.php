@@ -1,6 +1,5 @@
 @extends('user.layouts.app')
 
-
 @section('content')
     <div class="container mt-5">
         <h3>Новости техникума</h3>
@@ -14,9 +13,10 @@
                             <img src="https://via.placeholder.com/350x150" class="card-img-top" alt="Placeholder">
                         @endif
                         <div class="card-body">
+                            <p class="card-text text-muted">{{ $item->created_at->translatedFormat('d F Y') }}</p>
                             <h5 class="card-title">{{ $item->title }}</h5>
                             <p class="card-text">{{ Str::limit($item->content, 100) }}</p>
-                            <a href="#" class="btn btn-primary">Читать дальше</a>
+                            <a href="{{ route('news.show', $item->id) }}" class="btn btn-primary">Подробнее...</a>
                         </div>
                     </div>
                 </div>
@@ -24,6 +24,9 @@
         </div>
     </div>
 
+    <div class="d-flex justify-content-center">
+        <a href="/news/" class="btn btn-primary">Все новости здесь...</a>
+    </div>
 @endsection
 
 <style>

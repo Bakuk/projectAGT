@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description')->nullable();
-            $table->string('file_path');  // Для хранения пути к загруженному файлу
-            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
+            $table->string('file_path');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade'); // Связь с таблицей категорий
             $table->timestamps();
         });
     }

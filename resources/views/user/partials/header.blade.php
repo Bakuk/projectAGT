@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row align-items-start">
             <div class="col">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{ route('home') }}">
                     <img
                         src="{{ asset('logo/logo.png') }}"
                         class="img-fluid logo"

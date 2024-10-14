@@ -1,5 +1,5 @@
 <div class="container">
-    <div id="specialtyCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div id="specialtyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
         <div class="carousel-inner">
             @foreach($specialties as $index => $specialty)
                 <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">

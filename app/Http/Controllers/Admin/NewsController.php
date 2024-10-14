@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Image;
 use App\Models\News;
 use Illuminate\Http\Request;
@@ -18,11 +19,6 @@ class NewsController extends Controller
         return view('admin.news.index', compact('news'));
     }
 
-    public function showNews()
-    {
-        $news = News::orderBy('created_at', 'desc');
-        return view('admin.news.index', compact('news'));
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -69,7 +65,7 @@ class NewsController extends Controller
             }
         }
 
-        return redirect()->route('admin.news.create')->with('success', 'Новость успешно добавлена!');
+        return redirect()->route('admin.news.index')->with('success', 'Новость успешно добавлена!');
     }
 
     /**

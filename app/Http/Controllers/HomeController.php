@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index()
     {
         // Получаем все новости
-        $news = News::with('images')->get();
+        $news = News::with('images')->limit(6)->get();
 
         $specialties = Specialty::with('images')->get();
 

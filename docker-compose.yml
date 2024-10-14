@@ -19,8 +19,6 @@ services:
         - ./.docker/conf/php/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
         - .:/var/www/html
         - ./.docker/conf/php/php.ini:/usr/local/etc/php/php.ini
-    ports:
-        - 9003:9003  # Проброс порта для Xdebug 3
     env_file:
       - .env
 
