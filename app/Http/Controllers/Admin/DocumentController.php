@@ -7,34 +7,26 @@ use App\Models\Category;
 use App\Models\Document;
 use Illuminate\Http\Request;
 
+
 class DocumentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $documents = Document::with('category')->get();
+        $documents = Document::with('category')->orderBy('created_at', 'desc')->paginate(10);
         return view('admin.documents.index', compact('documents'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $categories = Category::all();
         return view('admin.documents.create', compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
             'title' => 'required',
-            'document' => 'required|mimes:pdf,doc,docx, xls,xlsx|max:10240',
+            'document' => 'required|mimes:pdf,doc,docx,xls,xlsx|max:51200',
             'category_id' => 'required|exists:categories,id',
         ]);
 
@@ -54,15 +46,6 @@ class DocumentController extends Controller
 
         return back()->with('error', 'Ошибка при загрузке документа.');
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Document $document)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      */
@@ -89,7 +72,7 @@ class DocumentController extends Controller
         $request->validate([
             'title' => 'required',
             'category_id' => 'required|exists:categories,id',
-            'document' => 'nullable|mimes:pdf,doc,docx,xls,xlsx|max:10240',
+            'document' => 'nullable|mimes:pdf,doc,docx,xls,xlsx|max:51200',
         ]);
 
 

@@ -1,5 +1,5 @@
 <nav class="col-md-4 col-lg-3 d-md-block sidebar">
-    <a href="" class="sidebar-link" >Основные сведения</a>
+    <a href="/sveden/basics/" class="sidebar-link {{ request()->is('sveden/basics') ? 'active' : '' }}" data-url="{{ route('user.basics') }}">Основные сведения</a>
     <a href="/sveden/struct/" class="sidebar-link {{ request()->is('sveden/struct') ? 'active' : '' }}" data-url="{{ route('user.struct') }}">Структуры и органы управления образовательной организации</a>
     <a href="/sveden/documents/"  class="sidebar-link {{ request()->is('sveden/documents') ? 'active' : '' }}" data-url="{{ route('user.documents') }}">Документы</a>
     <a href="#contact" class="sidebar-link">Образовательные стандарты и требования</a>

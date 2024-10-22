@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\OrganizasiaController;
 use App\Http\Controllers\Admin\SpecialtyController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\HomeController;
@@ -11,7 +12,7 @@ use App\Http\Controllers\User\SvedenController;
 
 use Illuminate\Support\Facades\Route;
 
-//Auth
+/*AUTH*/
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
 Route::get('register', [CustomAuthController::class, 'registration'])->name('register');
@@ -19,7 +20,7 @@ Route::post('custom-registration', [CustomAuthController::class, 'customRegistra
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 Route::get('about', [MainController::class, 'about'])->name('about');
 
-//admin
+/*ADMIN*/
 Route::get('admin/dashboard', [CustomAuthController::class, 'dashboard'])->name('admin/dashboard');
 Route::get('admin/news', [NewsController::class, 'index'])->name('admin.news.index');
 Route::get('admin/news/create', [NewsController::class, 'create'])->name('admin.news.create');
@@ -50,16 +51,26 @@ Route::get('admin/documents', [DocumentController::class, 'index'])->name('admin
 Route::get('admin/documents/create', [DocumentController::class, 'create'])->name('admin.documents.create');
 Route::post('admin/documents', [DocumentController::class, 'store'])->name('admin.documents.store');
 
+Route::get('/admin/organizasia', [OrganizasiaController::class, 'index'])->name('admin.organizasia.index');
+Route::get('admin/organizasia/{id}/edit', [OrganizasiaController::class, 'edit'])->name('admin.organizasia.edit');
+Route::put('admin/organizasia/{id}', [OrganizasiaController::class, 'update'])->name('admin.organizasia.update');
+
 Route::put('admin/documents/{id}', [DocumentController::class, 'update'])->name('admin.documents.update');
 Route::get('admin/documents/{id}/edit', [DocumentController::class, 'edit'])->name('admin.documents.edit');
 Route::delete('admin/documents/{id}', [DocumentController::class, 'destroy'])->name('admin.documents.destroy');
 
 
-//user
+/*USER*/
+
+
 Route::get('home', [HomeController::class, 'index'])->name('home');
+
+//sveden
 Route::get('/sveden/', [SvedenController::class, 'index'])->name('sveden');
 Route::get('/sveden/documents/', [SvedenController::class, 'documents'])->name('user.documents');
 Route::get('/sveden/struct/', [SvedenController::class, 'struct'])->name('user.struct');
+Route::get('/sveden/basics/', [SvedenController::class, 'basicsSveden'])->name('user.basics');
 
+//news
 Route::get('/news/', [\App\Http\Controllers\User\NewsController::class, 'index'])->name('user.news');
 Route::get('/news/{id}', [\App\Http\Controllers\User\NewsController::class, 'show'])->name('news.show');

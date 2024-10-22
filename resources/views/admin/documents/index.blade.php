@@ -42,5 +42,8 @@
             <!-- Дополнительные строки -->
             </tbody>
         </table>
+        <div class="pagination">
+            {{ $documents->links('vendor.pagination.bootstrap-4') }}
+        </div>
     </div>
 @endsection

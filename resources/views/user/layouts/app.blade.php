@@ -33,6 +33,9 @@
         @yield('content')
     </main>
 
+    @if (Route::is('home'))
+        @include('user.partials.official-sources')
+    @endif
 
     @include('user.partials.footer')
 

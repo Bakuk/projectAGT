@@ -6,8 +6,16 @@
 
 @section('content')
     <div class="container">
-        @if(session('success'))
-            <div>{{ session('success') }}</div>
+        <h1>Загрузить новый документ</h1>
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
         @endif
         <form id="contact" action="{{ route('admin.documents.store') }}" method="post" enctype="multipart/form-data">
             @csrf
@@ -49,7 +57,6 @@
                 <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Добавить документ</button>
             </fieldset>
         </form>
-
 
     </div>
 @endsection

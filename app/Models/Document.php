@@ -9,12 +9,8 @@ class Document extends Model
 {
     use HasFactory;
 
-    // Разрешённые поля для массового заполнения
     protected $fillable = ['title', 'file_path', 'category_id'];
 
-    /**
-     * Связь многие к одному с моделью Category
-     */
     public function category()
     {
         return $this->belongsTo(Category::class);
