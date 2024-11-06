@@ -1,4 +1,4 @@
-<footer class="bg-dark text-light py-4 mt-auto">
+<footer class="bg-dark text-light py-4"> <!-- Футер, который будет прикреплен к низу -->
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -12,7 +12,7 @@
                 <ul class="list-unstyled">
                     <li><a href="{{ route('home') }}" class="text-light">Главная</a></li>
                     <li><a href="{{ route('user.news') }}" class="text-light">Новости</a></li>
-                    <li><a href="{{--{{ route('contact') }}--}}" class="text-light">Контакты</a></li>
+                    <li><a href="#" class="text-light">Контакты</a></li>
                 </ul>
             </div>
             <div class="col-md-3">

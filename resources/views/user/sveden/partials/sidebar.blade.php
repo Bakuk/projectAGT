@@ -2,17 +2,22 @@
     <a href="/sveden/basics/" class="sidebar-link {{ request()->is('sveden/basics') ? 'active' : '' }}" data-url="{{ route('user.basics') }}">Основные сведения</a>
     <a href="/sveden/struct/" class="sidebar-link {{ request()->is('sveden/struct') ? 'active' : '' }}" data-url="{{ route('user.struct') }}">Структуры и органы управления образовательной организации</a>
     <a href="/sveden/documents/"  class="sidebar-link {{ request()->is('sveden/documents') ? 'active' : '' }}" data-url="{{ route('user.documents') }}">Документы</a>
-    <a href="#contact" class="sidebar-link">Образовательные стандарты и требования</a>
-    <a href="#contact" class="sidebar-link">Руководство</a>
-    <a href="#contact" class="sidebar-link">Педагогический состав</a>
-    <a href="#contact" class="sidebar-link">Материально-техническое обеспечение и оснащенность
-        образовательного процесса. Доступная среда</a>
-    <a href="#contact" class="sidebar-link">Платные образовательные услуги</a>
-    <a href="#contact" class="sidebar-link">Финансово-хозяйственная деятельность</a>
-    <a href="#contact" class="sidebar-link">Вакантные места для приема (перевода) обучающихся</a>
-    <a href="#contact" class="sidebar-link">Стипендии и меры поддержки обучающихся</a>
-    <a href="#contact" class="sidebar-link">Международное сотрудничество</a>
-    <a href="#contact" class="sidebar-link">Организация питания в образовательной организации</a>
+    <a href="/sveden/education/"  class="sidebar-link {{ request()->is('sveden/education') ? 'active' : '' }}" data-url="{{ route('user.education') }}">Образование</a>
+    <a href="/sveden/eduStandart/" class="sidebar-link {{ request()->is('sveden/eduStandart') ? 'active' : '' }}" data-url="{{ route('user.eduStandart') }}">Образовательные стандарты и требования</a>
+    <a href="/sveden/employees/" class="sidebar-link {{ request()->is('sveden/employees') ? 'active' : '' }}" data-url="{{ route('user.employees') }}">Руководство. Педагогический состав</a>
+    <a href="/sveden/objects/" class="sidebar-link {{ request()->is('sveden/objects') ? 'active' : '' }}" data-url="{{ route('user.objects') }}">Материально-техническое обеспечение и оснащенность
+        образовательного процесса</a>
+    <a href="/sveden/grants/" class="sidebar-link {{ request()->is('sveden/grants') ? 'active' : '' }}" data-url="{{ route('user.grants') }}">Стипендии и меры поддержки обучающихся</a>
+    <a href="/sveden/paid_edu/" class="sidebar-link {{ request()->is('sveden/paid_edu') ? 'active' : '' }}" data-url="{{ route('user.paidEdu') }}">Платные образовательные услуги</a>
+    <a href="/sveden/accesible/" class="sidebar-link {{ request()->is('sveden/accesible') ? 'active' : '' }}" data-url="{{ route('user.accesible') }}">Доступная среда</a>
+    <a href="/sveden/international/" class="sidebar-link {{ request()->is('sveden/international') ? 'active' : '' }}" data-url="{{ route('user.international') }}">Международное сотрудничество</a>
+    <a href="/sveden/food_edu/" class="sidebar-link {{ request()->is('sveden/food_edu') ? 'active' : '' }}" data-url="{{ route('user.foodEdu') }}">Организация питания в образовательной организации</a>
+    <a href="/sveden/transfer_edu/" class="sidebar-link {{ request()->is('sveden/transfer_edu') ? 'active' : '' }}" data-url="{{ route('user.transferEdu') }}">Вакантные места для приема (перевода) обучающихся</a>
+    <a href="/sveden/budget/" class="sidebar-link {{ request()->is('sveden/budget') ? 'active' : '' }}" data-url="{{ route('user.budget') }}">Финансово-хозяйственная деятельность</a>
+
+
+
+
 
 </nav>
 

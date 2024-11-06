@@ -22,7 +22,7 @@
                     <div class="col s1">&nbsp;</div>
                     <div class="col s1">&nbsp;</div>
 
-                    <a href="#!">
+                    <a href="/admin/employees">
                         <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
                             <i class="indigo-text text-lighten-1 large material-icons">people</i>
                             <span class="indigo-text text-lighten-1"><h5>Сотрудники</h5></span>

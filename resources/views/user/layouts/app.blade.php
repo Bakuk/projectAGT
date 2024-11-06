@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Lightbox CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+
 </head>
 <body>
 <div id="app">
@@ -117,6 +118,13 @@
         background: #ededed;
     }
 
+    .navbar-nav .nav-link:hover {
+        color: #ffffff; /* Серый цвет текста при наведении */
+        background-color: #a5adb7; /* Светло-серый фон при наведении */
+    }
+
+
+
     .sidebar-link.active {
         background-color: rgba(0, 87, 179, 0.63);
         color: white;
@@ -126,6 +134,7 @@
         background-color: #ffffff;
         padding: 15px;
         border-radius: 8px;
+        margin-top: 10px;
     }
 
     .list-group-item {
@@ -144,5 +153,38 @@
         text-decoration: none; /* Убираем подчеркивание при наведении, если нужно */
         color: #0056b3; /* Изменяем цвет при наведении */
     }
+
+    .table-primary {
+        background-color: #dee2e6 !important; /* Серый цвет для заголовка таблицы */
+    }
+    .accordion-button {
+        background-color: #e9ecef;
+        color: #495057;
+    }
+    .accordion-button:not(.collapsed) {
+        background-color: #d6d8db;
+    }
+    .accordion-item {
+        border-color: #dee2e6;
+    }
+
+    .image_slid {
+        list-style: none; /* Убираем точки */
+        display: flex; /* Включаем flex-контейнер */
+        gap: 10px; /* Добавляем отступы между изображениями */
+        padding: 0; /* Убираем отступы списка */
+        margin: 0; /* Убираем отступы списка */
+    }
+
+    .image_slid li {
+        flex: 1; /* Выравниваем элементы */
+    }
+
+    .img_item {
+        max-width: 100%; /* Устанавливаем размер изображения на ширину родителя */
+        height: auto; /* Сохраняем пропорции изображения */
+    }
+
+
 </style>
 

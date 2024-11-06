@@ -2,12 +2,16 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DocumentController;
+use App\Http\Controllers\Admin\EmployeesController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\OrganizasiaController;
 use App\Http\Controllers\Admin\SpecialtyController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\User\AbiturController;
+use App\Http\Controllers\User\lecturerController;
+use App\Http\Controllers\User\StudentController;
 use App\Http\Controllers\User\SvedenController;
 
 use Illuminate\Support\Facades\Route;
@@ -51,6 +55,14 @@ Route::get('admin/documents', [DocumentController::class, 'index'])->name('admin
 Route::get('admin/documents/create', [DocumentController::class, 'create'])->name('admin.documents.create');
 Route::post('admin/documents', [DocumentController::class, 'store'])->name('admin.documents.store');
 
+Route::get('admin/employees', [EmployeesController::class, 'index'])->name('admin.employees.index');
+Route::get('admin/employees/create', [EmployeesController::class, 'create'])->name('admin.employees.create');
+Route::post('admin/employees', [EmployeesController::class, 'store'])->name('admin.employees.store');
+
+Route::get('admin/employees/{id}/edit', [EmployeesController::class, 'edit'])->name('admin.employees.edit');
+Route::put('admin/categories/{id}', [CategoryController::class, 'update'])->name('admin.categories.update');
+Route::delete('admin/employees/{id}', [EmployeesController::class, 'destroy'])->name('admin.employees.destroy');
+
 Route::get('/admin/organizasia', [OrganizasiaController::class, 'index'])->name('admin.organizasia.index');
 Route::get('admin/organizasia/{id}/edit', [OrganizasiaController::class, 'edit'])->name('admin.organizasia.edit');
 Route::put('admin/organizasia/{id}', [OrganizasiaController::class, 'update'])->name('admin.organizasia.update');
@@ -61,8 +73,6 @@ Route::delete('admin/documents/{id}', [DocumentController::class, 'destroy'])->n
 
 
 /*USER*/
-
-
 Route::get('home', [HomeController::class, 'index'])->name('home');
 
 //sveden
@@ -70,6 +80,46 @@ Route::get('/sveden/', [SvedenController::class, 'index'])->name('sveden');
 Route::get('/sveden/documents/', [SvedenController::class, 'documents'])->name('user.documents');
 Route::get('/sveden/struct/', [SvedenController::class, 'struct'])->name('user.struct');
 Route::get('/sveden/basics/', [SvedenController::class, 'basicsSveden'])->name('user.basics');
+Route::get('/sveden/education/', [SvedenController::class, 'education'])->name('user.education');
+Route::get('/sveden/eduStandart/', [SvedenController::class, 'eduStandart'])->name('user.eduStandart');
+Route::get('/sveden/employees/', [SvedenController::class, 'employee'])->name('user.employees');
+Route::get('/sveden/objects/', [SvedenController::class, 'objects'])->name('user.objects');
+Route::get('/sveden/grants/', [SvedenController::class, 'grants'])->name('user.grants');
+Route::get('/sveden/paid_edu/', [SvedenController::class, 'paidEdu'])->name('user.paidEdu');
+Route::get('/sveden/accesible/', [SvedenController::class, 'accesible'])->name('user.accesible');
+Route::get('/sveden/international/', [SvedenController::class, 'international'])->name('user.international');
+Route::get('/sveden/food_edu/', [SvedenController::class, 'foodEdu'])->name('user.foodEdu');
+Route::get('/sveden/transfer_edu/', [SvedenController::class, 'transferEdu'])->name('user.transferEdu');
+Route::get('/sveden/budget/', [SvedenController::class, 'budget'])->name('user.budget');
+
+
+//abitur
+Route::get('/abitur/', [AbiturController::class, 'index'])->name('abitur');
+Route::get('/abitur/reception', [AbiturController::class, 'reception'])->name('user.reception');
+Route::get('/abitur/admision', [AbiturController::class, 'admision'])->name('user.admision');
+Route::get('/abitur/categoty', [AbiturController::class, 'categoty'])->name('user.categoty');
+Route::get('/abitur/decree', [AbiturController::class, 'decree'])->name('user.decree');
+Route::get('/abitur/history', [AbiturController::class, 'history'])->name('user.history');
+
+//student
+Route::get('/student/', [StudentController::class, 'index'])->name('student');
+Route::get('/student/schedule', [StudentController::class, 'schedule'])->name('user.schedule');
+Route::get('/student/obshhezhitiye', [StudentController::class, 'obshhezhitiye'])->name('user.obshhezhitiye');
+Route::get('/student/grantsStudent', [StudentController::class, 'grantsStudent'])->name('user.grantsStudent');
+Route::get('/student/section', [StudentController::class, 'section'])->name('user.section');
+Route::get('/student/sportClub', [StudentController::class, 'sportClub'])->name('user.sportClub');
+Route::get('/student/career', [StudentController::class, 'career'])->name('user.career');
+
+//lecturer
+
+Route::get('/lecturer/', [lecturerController::class, 'index'])->name('student');
+Route::get('/lecturer/document', [lecturerController::class, 'document'])->name('user.documentLecture');
+/*Route::get('/lecturer/obshhezhitiye', [lecturerController::class, 'obshhezhitiye'])->name('user.obshhezhitiye');
+Route::get('/lecturer/grantsStudent', [lecturerController::class, 'grantsStudent'])->name('user.grantsStudent');
+Route::get('/lecturer/section', [lecturerController::class, 'section'])->name('user.section');
+Route::get('/lecturer/sportClub', [lecturerController::class, 'sportClub'])->name('user.sportClub');
+Route::get('/lecturer/career', [lecturerController::class, 'career'])->name('user.career');*/
+
 
 //news
 Route::get('/news/', [\App\Http\Controllers\User\NewsController::class, 'index'])->name('user.news');
