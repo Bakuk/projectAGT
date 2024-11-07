@@ -10,10 +10,19 @@ use Illuminate\Http\Request;
 
 class DocumentController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $documents = Document::with('category')->orderBy('created_at', 'desc')->paginate(10);
-        return view('admin.documents.index', compact('documents'));
+        $categories = Category::all(); // Fetch all categories for the dropdown
+        $query = Document::query(); // Start a query builder instance
+
+        // Apply filter if a category is selected
+        if ($request->filled('category')) {
+            $query->where('category_id', $request->category);
+        }
+
+        $documents = $query->paginate(10); // Adjust the pagination as needed
+        //$documents = Document::with('category')->orderBy('created_at', 'desc')->paginate(10);
+        return view('admin.documents.index', compact('documents', 'categories'));
     }
 
     public function create()
