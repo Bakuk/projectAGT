@@ -28,7 +28,7 @@
                     <a href="{{ route('admin.documents.index') }}" class="btn btn-outline-secondary">Сбросить</a>
                 </div>
             </div>
-
+        </form>
         <div class="button-container">
             <a href="{{ route('admin.documents.create') }}">
                 <button class="add-news-btn">Добавить документы</button>

@@ -34,3 +34,13 @@ services:
       - 54322:5432
     volumes:
       - ./sourcefiles/postgres:/var/lib/postgresql/data
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+        - "5672:5672" # Порт для RabbitMQ
+        - "15672:15672" # Порт для RabbitMQ Management UI
+    environment:
+        RABBITMQ_DEFAULT_USER: user
+        RABBITMQ_DEFAULT_PASS: password

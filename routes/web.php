@@ -7,7 +7,9 @@ use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\OrganizasiaController;
 use App\Http\Controllers\Admin\SpecialtyController;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\User\AbiturController;
 use App\Http\Controllers\User\lecturerController;
@@ -124,3 +126,12 @@ Route::get('/lecturer/career', [lecturerController::class, 'career'])->name('use
 //news
 Route::get('/news/', [\App\Http\Controllers\User\NewsController::class, 'index'])->name('user.news');
 Route::get('/news/{id}', [\App\Http\Controllers\User\NewsController::class, 'show'])->name('news.show');
+
+//обратная связь
+Route::post('/send-feedback', [FeedbackController::class, 'store']);
+
+//mail
+//Route::get('/send-test-email', [MailController::class, 'sendTestEmail']);
+Route::get('/sendbasicemail', [MailController::class, 'basic_email']);
+Route::get('/sendhtmlemail', [MailController::class, 'html_email']);
+Route::get('/sendattachmentemail', [MailController::class, 'attachment_email']);
